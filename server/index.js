@@ -71,7 +71,9 @@ async function startServer() {
     });
 
     await server.start();
-    app.use(cors());
+    app.use(cors({
+        origin:"*"
+    }));
     app.use(express.json());
     app.use('/graphql', expressMiddleware(server));
 
